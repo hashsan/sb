@@ -9,7 +9,11 @@ import "https://hashsan.github.io/sb/sb.js"
 sb(name,template.html,replaceTarget='<!--sb-->',saveSpan=2000)
 
 //template.htmlを使って、name.mdとname.htmlをtemplate.htmlと同じ場所に作る。
+//であるので、template.htmlは基本はフルパスとなる。
+//フルパスからowner,repoを取得できるようにする。
+//ex) https://hashsan.github.io/sb/template.html -> owner = hashsan, repo = sb
 //replaceTargetを指定しない場合はtemplate.htmlの中にある'<!--sb-->'である。
+
 ```
 
 ## 開発参考
