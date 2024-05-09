@@ -24,9 +24,23 @@ function get(query) {
     if (value === null) {
         throw new Error("クエリ '" + query + "' は存在しません。");
     }
-    
-    return value;
+
+    //日本語の場合はurlは文字化けするので対応する
+    return treatUrl(value); 
 }
+
+function pureUrl(url){
+  return url.split('?')[0]  
+}
+function isEncodedUrl(url) {
+  return /%[0-9A-Fa-f]{2}/.test(url);
+}
+function treatUrl(url){
+  url = pureUrl(url)
+  url = isEncodedUrl(url)?decodeURIComponent(url):url
+  return url;
+}
+
 ```
 
 ### 2. template.htmlをfetchリクエストで取得するユーティリティ関数
