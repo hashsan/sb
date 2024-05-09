@@ -12,7 +12,10 @@ sb(name,template.html,replaceTarget='<!--sb-->',saveSpan=2000)
 
 ```
 
-## url?q=fooといったようなクエリを取得するユーティリティ関数
+## 開発参考
+
+### 1. url?q=fooといったようなクエリを取得するユーティリティ関数
+
 ```
 function get(query) {
     var params = new URLSearchParams(window.location.search);
