@@ -74,7 +74,6 @@ function getGithubInfo(url) {
 // 例としてURLを渡して情報を取得
 const url = 'https://hashsan.github.io/hermes/%E3%83%90%E3%83%AC%E3%82%A8%E3%81%82%E3%82%89%E3%81%99%E3%81%98.html';
 let {owner,repo,path} = getGithubInfo(url);
-path = replaceExtension(path,'.md')
 console.log(owner,repo,path);
 */
 ```
