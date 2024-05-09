@@ -52,5 +52,56 @@ async function getTemplate(url) {
 }
 ```
 
+### 3. viewとeditを切り替えるユーティリティ関数
+使用例では、なおかつ、markedで文字列をマークダウンにしてhtmlにしている。
+```
+import "https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js";
+
+function makeFrame() {
+    return `
+        <div class="frame">
+            <div class="view">View Mode</div>
+            <div class="edit"
+            contenteditable="plaintext-only"
+            style="outline:none;min-height:10rem;"
+            >Edit Mode</div>
+        </div>
+    `;
+}
+
+function eventFrame(caller) {
+    const view = document.querySelector('.view');
+    const edit = document.querySelector('.edit');
+
+    const showView = function() {
+        if(caller){
+          caller(view,edit);
+        }
+        view.style.display = 'block';
+        edit.style.display = 'none';
+    }
+    const showEdit = function() {
+        view.style.display = 'none';
+        edit.style.display = 'block';
+        edit.focus();
+    }
+
+    // 最初は .view を表示
+    showView();
+
+    view.addEventListener('click', showEdit);
+    edit.addEventListener('blur', showView);
+}
+
+var html = makeFrame();
+document.body.innerHTML = html;
+eventFrame((view,edit)=>{
+  const parse = marked.parse
+  view.innerHTML = parse(edit.textContent)
+  
+});
+
+```
+
 
 
