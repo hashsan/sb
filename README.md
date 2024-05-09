@@ -10,7 +10,6 @@ sb(name,template.html,replaceTarget='<!--sb-->',saveSpan=2000)
 
 //template.htmlを使って、name.mdとname.htmlをtemplate.htmlと同じ場所に作る。
 //replaceTargetを指定しない場合はtemplate.htmlの中にある'<!--sb-->'である。
-
 ```
 
 ## 開発参考
@@ -28,7 +27,6 @@ function get(query) {
     
     return value;
 }
-
 ```
 
 ### 2. template.htmlをfetchリクエストで取得するユーティリティ関数
@@ -102,7 +100,6 @@ eventFrame((view,edit)=>{
   
 });
 */
-
 ```
 
 ### 4.editableをフェッチして、処理をするユーティリティ関数
@@ -157,7 +154,6 @@ autoEditable(el=>{
   pre.textContent = el.textContent
 })
 */
-
 ```
 
 
