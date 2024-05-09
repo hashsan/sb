@@ -78,6 +78,21 @@ console.log(owner,repo,path);
 */
 ```
 
+### 1.2 名前に.mdがあるか、ない場合は.mdを足す。いずれにせよどちらも動作する。
+```
+function treatFile(name,exe){
+ exe = exe || '.md'
+ file = name.replace(exe,'') + exe
+ return file
+}
+
+//let path
+//path = treatFile('テスト','.md')
+console.log(path)
+//path = treatFile('テスト.md','.md')
+console.log(path)
+```
+
 
 ### 2. template.htmlをfetchリクエストで取得するユーティリティ関数
 
