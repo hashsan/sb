@@ -103,5 +103,49 @@ eventFrame((view,edit)=>{
 
 ```
 
+### 4.editableをフェッチして、処理をするユーティリティ関数
+```
+// debounce関数の定義
+function debounce(func, delay) {
+  let timerId;
+  return function(...args) {
+    clearTimeout(timerId);
+    timerId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
+// autoFetch関数の定義
+function autoEditable(caller, span) {
+  // デフォルトで2秒の間隔を設定
+  span = span || 2000;
+
+  // contenteditable属性を持つ要素を検索
+  const query = '[contenteditable]';
+  const el = document.querySelector(query);
+
+  // 要素が見つからない場合はエラーメッセージを出力して終了
+  if (!el) return console.error(query + ': query not found.');
+
+  // コールバック関数を定義し、指定された間隔で呼び出す
+  const save = () => { if (caller) caller(el); };
+  const de_save = debounce(save, span);
+
+  // キーボードイベントを監視し、Ctrl + Sで保存または指定された間隔ごとに保存
+  el.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && event.key === 's') {
+      event.preventDefault(); // デフォルトの保存イベントを防止
+      save(); // Ctrl + Sで即時保存
+    } else {
+      de_save(); // 指定された間隔で保存
+    }
+  });
+
+  return el; // 処理対象の要素を返す
+}
+
+```
+
 
 
