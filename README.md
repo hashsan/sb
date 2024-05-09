@@ -93,6 +93,7 @@ function eventFrame(caller) {
     edit.addEventListener('blur', showView);
 }
 
+/*
 var html = makeFrame();
 document.body.innerHTML = html;
 eventFrame((view,edit)=>{
@@ -100,6 +101,7 @@ eventFrame((view,edit)=>{
   view.innerHTML = parse(edit.textContent)
   
 });
+*/
 
 ```
 
@@ -144,6 +146,17 @@ function autoEditable(caller, span) {
 
   return el; // 処理対象の要素を返す
 }
+
+/*
+document.body.append(document.createElement('pre'))
+
+autoEditable(el=>{
+  
+  var pre = document.querySelector('pre')
+  console.log(pre,el)
+  pre.textContent = el.textContent
+})
+*/
 
 ```
 
