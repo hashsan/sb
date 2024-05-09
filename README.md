@@ -115,7 +115,7 @@ function debounce(func, delay) {
   };
 }
 
-// autoFetch関数の定義
+// autoEditable関数の定義
 function autoEditable(caller, span) {
   // デフォルトで2秒の間隔を設定
   span = span || 2000;
