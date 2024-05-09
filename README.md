@@ -86,11 +86,14 @@ function treatFile(name,exe){
  return file
 }
 
-//let path
-//path = treatFile('テスト','.md')
-console.log(path)
-//path = treatFile('テスト.md','.md')
-console.log(path)
+/*
+let path
+path = treatFile('テスト','.md')
+console.log(path) //テスト.md
+path = treatFile('テスト.md','.md')
+console.log(path) //テスト.md
+*/
+
 ```
 
 
