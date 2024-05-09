@@ -30,3 +30,27 @@ function get(query) {
 }
 
 ```
+
+### 2. template.htmlをfetchリクエストで取得するユーティリティ関数
+
+```
+async function getTemplate(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        
+        return { html, doc };
+    } catch (error) {
+        console.error('Fetch Error:', error);
+        throw error;
+    }
+}
+```
+
+
+
