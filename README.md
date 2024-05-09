@@ -102,7 +102,7 @@ eventFrame((view,edit)=>{
 */
 ```
 
-### 4.editableをフェッチして、処理をするユーティリティ関数
+### 4. editableをフェッチして、処理をするユーティリティ関数
 ```
 // debounce関数の定義
 function debounce(func, delay) {
